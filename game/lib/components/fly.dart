@@ -10,7 +10,7 @@
 //   bool isOffScreen = false;
 
 //   Fly(this.game, double x, double y) {
-//     flyRect = Rect.fromLTWH(x, y, game.tileSize, game.tileSize);
+//     flyRect = Rect.fromLTWH(x, y, game.tilescreenSize, game.tilescreenSize);
 //     flyPaint = Paint();
 //     flyPaint.color = Color(0xff6ab04c);
 //   }
@@ -21,8 +21,8 @@
 
 //   void update(double t) {
 //     if (isDead) {
-//       flyRect = flyRect.translate(0, game.tileSize * 12 * t);
-//       if (flyRect.top > game.screenSize.height) {
+//       flyRect = flyRect.translate(0, game.tilescreenSize * 12 * t);
+//       if (flyRect.top > game.screenscreenSize.height) {
 //         isOffScreen = true;
 //       }
 //     }

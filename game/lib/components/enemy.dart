@@ -1,8 +1,6 @@
 import 'dart:math';
 import 'dart:ui';
-import 'package:flame/components/component.dart';
-import 'package:flame/components/mixins/has_game_ref.dart';
-import 'package:flame/flame.dart';
+import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 
 import '../Game.dart';
@@ -20,17 +18,11 @@ class Enemy extends PositionComponent with HasGameRef<MyGame> {
   Offset targetLocation;
 
   Enemy(this.game) {
-    print(game.screenSize);
-    enemyRect = Rect.fromLTWH((game.screenSize.width / 2) - game.tileSize, 0,
-        game.tileSize, game.tileSize);
+    enemyRect = Rect.fromLTWH(
+        (width / 2) - game.tileSize, 0, game.tileSize, game.tileSize);
     enemyPaint = Paint();
     enemyPaint.color = Colors.green;
     setTargetLocation();
-  }
-
-  @override
-  void resize(Size size) {
-    super.resize(size);
   }
 
   @override
@@ -61,10 +53,8 @@ class Enemy extends PositionComponent with HasGameRef<MyGame> {
   double get speed => game.tileSize * 3;
 
   void setTargetLocation() {
-    moveX =
-        rnd.nextDouble() * (game.screenSize.width - (game.tileSize * 2.025));
-    moveY =
-        rnd.nextDouble() * (game.screenSize.height - (game.tileSize * 2.025));
+    moveX = rnd.nextDouble() * (width - (game.tileSize * 2.025));
+    moveY = rnd.nextDouble() * (height - (game.tileSize * 2.025));
 
     targetLocation = Offset(moveX, moveY);
   }
